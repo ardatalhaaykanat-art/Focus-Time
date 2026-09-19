@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
  <head>
-<meta charset="UTF-8>
+<meta charset="UTF-8">
   <meta name="viewport"
    content="width=device-width,
    initial-scale=1.0">
    <title>Focus - Focus Room</title>
    <!-- Confetti Library -->
-   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"</script>
+   <script> src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"</script>
    <style>
    body {
    font-family:'Segoe UI', Tahoma,Geneva, Verdana, sans-serif;
@@ -100,7 +100,7 @@
      <h2 style="color: #1f2937; margin-bottom: 15px">Focus Room</h2>
     <div id="timer" style="font-size: 48px; font-weight: bold; color:#111827;margin-bottom: 10px; font-weight: 600;">Set Duration (Minutes)</div>
 
-    < div style="display: flex; align-items: center; justify-content: center; gap: 8px;">
+    <div style="display: flex; align-items: center; justify-content: center; gap: 8px;">
      <button class="btn-time" style="background-color:#e5e7eb; color: #374151; border: none; padding: 8px 12px; border-radius: 6px; font-weight:bold;
      cursor: pointer;" onclick="changeTime(-5)">-5</button>
      <button class="btn-time" style=background-color: #e5e7eb; color: #374151;border: none; padding: 8px 12px; border-radius: 6px;font-weight: bold;
@@ -119,7 +119,7 @@
      <button style="padding: 10px 20px; font-size: 16px; background-color:#10b981;color:white;border: none;border-radius: 8px; cursor: pointer;
  font-weight: bold;"onclick="resetTimer()">Reset</button> 
       </div>
-   </div>
+
 
 <script>
      let TargetEndTime = null;
@@ -136,10 +136,10 @@
      let minutesStr = m<10 ? "0" +m : m;
      let secondsStr = s<10 ? "0" +s : s;
 
-     document.getElementByld("timer").innerText = minutesStr + ":" + secondStr;
+     document.getElementById("timer").innerText = minutesStr + ":" + secondStr;
     }
     function showAlert(){
-      let alertBox = document.getElementByld("custom-alert");
+      let alertBox = document.getElementById("custom-alert");
      alertBox.style.display = "block";
 
      let container = document.querySelector('.container');
@@ -150,7 +150,7 @@
      }, 400);
     }
     function closeAlert(){
-     document.getElementByld("custom-alert").style.display = "none";
+     document.getElementById("custom-alert").style.display = "none";
     }
     function changeTime(amount){
      if(timerId !== null) return;
@@ -168,7 +168,7 @@
       setMinutes= Math.min(maxVal,Math.max(1,setMinutes>+amount));
       timeLeft= setMinutes*60;
 
-      document.getElementByld("custom-minutes").innerText = setMinutes;
+      document.getElementById("custom-minutes").innerText = setMinutes;
       updateDisplay();
     }
      function startTimer(){
@@ -182,20 +182,19 @@
            alert("Break is over!");
           isBreakMode=false;
           setMinutes=lastWorkMinutes;
-          document.getElementByld("mode-label").innerText= "Set Duration (Minutes)";
+          document.getElementById("mode-label").innerText= "Set Duration (Minutes)";
         } else {
           alert("Time is up!");
           isBreakMode=true;
           lastWorkMinutes=setMinutes
           setMinutes=Math.max(1,Math.floor(lastWorkMinutes/3));
-          document.getElementByld("mode-label").innerText="Set Break Duration (Max 1/3)";
+          document.getElementById("mode-label").innerText="Set Break Duration (Max 1/3)";
         }
-       timeLeft=setMinutes"60;
-         document.getElementByld("custom-minutes").innerText= setMinutes;
+       timeLeft=setMinutes*60;
+         document.getElementById("custom-minutes").innerText= setMinutes;
        updateDisplay();
      }
-   },250);
-}
+   }
  function resetTimer(){
    clearInterval(timerId);
    timerId = null;
@@ -203,40 +202,12 @@
    setMinutes=lastWorkMinutes;
    timeLeft=setMinutes*60;
 
-   document.getElementByld("mode-label").innerText="Set Duration (Minutes)";
-   document.getElementByld("custom-minutes").innerText=setMinutes;
+   document.getElementById("mode-label").innerText="Set Duration (Minutes)";
+   document.getElementById("custom-minutes").innerText=setMinutes;
    closeAlert();
-   document.getElementByld("timer").classList.remove("blink");
+   document.getElementById("timer").classList.remove("blink");
    updateDisplay();
    }
    </script>
  </body>
- </head>
 </html>
-    
-    
-  
-
-
-  
-  
-     
-
-
-
-     
-
-
-
-    
-      
-     
-
-
-
-
- 
-
-
-
-    
